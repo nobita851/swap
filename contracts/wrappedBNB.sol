@@ -1,6 +1,6 @@
 pragma solidity ^0.8.5;
 
-contract wrappedBNB{
+contract wBNB{
     string  public name = "Wrapper Binance Coin";
     string  public symbol = "wBNB";
     uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
@@ -21,7 +21,7 @@ contract wrappedBNB{
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
-    constructor() public {
+    constructor(){
         balanceOf[msg.sender] = totalSupply;
     }
 
