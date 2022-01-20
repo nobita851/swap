@@ -56,13 +56,14 @@ async function run() {
     Swap.abi,
     userWallet
   );
-  // const gas = await contractSwap.estimateGas.swapTokens(override);
-  // console.log(`Gas = ${gas}`);
+  await contractWBNB.transfer(
+    contractSwap.address,
+    "1000000000000000000000000"
+  );
+
   let tx = await userContract.swapTokens(override);
   let txComplete = await tx.wait();
-  console.log(
-    `https://explorer.bitquery.io/bsc_testnet/tx/${txComplete.transactionHash}`
-  );
+  console.log(`Transaction Hash = ${txComplete.transactionHash}`);
 }
 
 run();
